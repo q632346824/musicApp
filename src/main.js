@@ -3,6 +3,8 @@ import App from './App.vue'
 import fastclick from 'fastclick'
 import router from './router'
 import VueLazyload from 'vue-lazyload'
+
+import store from './store'
  
 
 
@@ -20,5 +22,6 @@ Vue.use(VueLazyload, {
 
 new Vue({
   render: h => h(App),
-  router
+  router,
+  store
 }).$mount('#app')

@@ -10,6 +10,14 @@ export const recommendSliderParams={
   needNewCode: 1
 }
 
+export const commonParams = {
+  g_tk: 5381,
+  inCharset: 'utf-8',
+  outCharset: 'utf-8',
+  notice: 0,
+  format: 'jsonp'
+}
+
 export const recommendSongParams={
   picmid: 1,
   rnd: 0.5630349657633402,
@@ -60,4 +68,28 @@ export const singerListParams2={
   param:'jsonpCallback'
 }
 
-  export const ERR_OK=0
+export const songListParam={
+  '-': 'getUCGI4667228935764667',
+  g_tk: 5381,
+  loginUin: 0,
+  hostUin: 0,
+  format: 'json',
+  inCharset: 'utf8',
+  outCharset: 'utf-8',
+  notice: 0,
+  platform: 'yqq.json',
+  needNewCode: 0,
+  data: {"comm":{"ct":24,"cv":0},"singer":{"method":"get_singer_detail_info","param":{"sort":5,"singermid":"0020PeOh4ZaCw1","sin":0,"num":100},"module":"music.web_singer_info_svr"}}
+}
+
+export const ERR_OK=0
+
+export const playMode = {
+  sequence: 0,
+  loop: 1,
+  random: 2
+}
+
+
+
+

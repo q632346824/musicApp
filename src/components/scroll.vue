@@ -23,7 +23,7 @@
         default: false
       },
       data: {
-        type: Object,
+        type: Array,
         default: null
       },
       pullup: {
@@ -41,17 +41,14 @@
       dataObject: {
         type: Object,
         default: null
-      }
+      },
+
     },
     mounted() {
-
-        
-        this._initScroll()
-        console.log("mounted",this.dataObject)
-        setTimeout(() => {
-          console.log("refreshed")
+     setTimeout(() => {
+          this._initScroll()
           this.scroll.refresh()
-        }, 5000)
+        }, 20)
     },
     methods: {
       _initScroll() {
@@ -60,9 +57,8 @@
         }
         this.scroll = new BScroll(this.$refs.wrapper, {
           probeType: this.probeType,
-          click: this.click
+          click: this.click,
         })
-        
         if (this.listenScroll) {
           let me = this
           this.scroll.on('scroll', (pos) => {
@@ -98,25 +94,26 @@
       },
       scrollToElement() {
         this.scroll && this.scroll.scrollToElement.apply(this.scroll, arguments)
+        if(arguments[0])
+        document.documentElement.scrollTop=arguments[0].offsetTop+88
+        
+
       }
     },
     watch: {
       //当拿到数据后重新计算宽度
-      data(val) {
-        console.log("data",val)
-        setTimeout(() => {
+      data(){
+        this.$nextTick(()=>{
           this.refresh()
-        }, this.refreshDelay)
+        })
       },
-
-      dataObject(val1,val2){
-            console.log("thisTick old",val2,"new1",val1)
-            this.scroll.refresh()
+      dataObject(){
+        this.$nextTick(()=>{
+          this.refresh()
+        })
       }
     }
   }
 </script>
 
-<style scoped lang="stylus" rel="stylesheet/stylus">
 
-</style>

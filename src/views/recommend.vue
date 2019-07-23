@@ -1,11 +1,11 @@
 <template>
-  <div class="recommend">
+  <div class="recommend" ref="recommends">
     <scroll ref="scroll" class="recommend-content" :data="discList">
       <div>
       <!-- 等待recomend有数据时才渲染 -->
         <div v-if="recommends.length" class="slider-wrapper">
           <slider>
-            <div v-for="item in recommends" :key='item.id'>
+            <div v-for="item in recommends" :key="item.id">
               <a :href="item.linkUrl">
                 <img @onload="loadImage" :src="item.picUrl">
               </a>
@@ -15,7 +15,7 @@
         <div class="recommend-list">
           <h1 class="list-title">Recommend</h1>
           <ul>
-            <li v-for="item in discList" :key="item.dissid" class="item">
+            <li v-for="item in discList" :key="item.dissid" class="item" @click="selectItem(item)">
               <div class="icon">
                 <img width="60" height="60" v-lazy="item.imgurl">
               </div>
@@ -31,6 +31,7 @@
         <loading></loading>
       </div>
     </scroll>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -40,8 +41,11 @@ import { recommendSliderParams, recommendSongParams } from '@/api/config'
 import Slider from '@/components/slider'
 import Scroll from '@/components/scroll'
 import Loading from '@/components/loading/loading'
+import {playlistMixin} from '@/assets/js/mixin'
+import {mapMutations} from 'vuex'
 
 export default {
+  mixins:[playlistMixin],
   data(){
     return {
       recommends:[],
@@ -60,6 +64,11 @@ export default {
     this.getSongList()
   },
   methods:{
+    handlePlaylist(playlist){
+      const bottom=playlist.length>0 ? "60px":""
+      this.$refs.recommends.style.bottom=bottom
+      this.$refs.scroll.refresh()
+    },
     getSlider(){
       axios.get('/recommendSlider',{ params: recommendSliderParams }).then(response=>{
         var res=response.data
@@ -82,7 +91,16 @@ export default {
         this.$refs.scroll.refresh()
         this.checkLoaded=true
       }
-    }
+    },
+    selectItem(item){
+      this.$router.push({
+        path:`/recommend/${item.dissid}`
+      })
+      this.setDisc(item)
+    },
+    ...mapMutations({
+      setDisc:'SET_DISC'
+    })
   }
 }
 </script>
