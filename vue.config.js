@@ -36,7 +36,15 @@ module.exports = {
         pathRewrite: {
             '^/getSongList': ''
         }
-    },
+       },
+      '/getRankList': {
+        target: 'https://c.y.qq.com/v8/fcg-bin/fcg_myqq_toplist.fcg',
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+            '^/getRankList': ''
+        }
+      },
     },
     before:(apiRoutes)=>{
       apiRoutes.get('/recommendSongList',function(req,res){
@@ -106,7 +114,21 @@ module.exports = {
               // console.log(e)
         })
       }),
+      apiRoutes.get('/getSuggestList',function(req,res){
+        var url="https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp"
 
+        axios.get(url, {
+          headers: {  
+            referer: 'https://y.qq.com/',
+            host: 'c.y.qq.com',
+          },
+          params: req.query 
+          }).then((response) => { 
+               res.json(response.data)
+          }).catch((e) => {
+              // console.log(e)
+        })
+      }),
       app.use(apiRoutes)
     }, // end before
   }
