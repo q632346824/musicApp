@@ -2,13 +2,16 @@
 
 A music app based on better-scroll.
 
-![![](F:\old\nodejs\music-app\src\pics\1.PNG)](F:\old\nodejs\music-app\src\pics\1.PNG)
+![![](https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/1.PNG)
 
-![](F:\old\nodejs\music-app\src\pics\2.PNG)
+![](https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/2.PNG)
 
-![![](F:\old\nodejs\music-app\src\pics\3.PNG)](F:\old\nodejs\music-app\src\pics\4.PNG)
+![![](https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/3.PNG)
 
-![![](F:\old\nodejs\music-app\src\pics\3.PNG)](F:\old\nodejs\music-app\src\pics\5.PNG)
+![![](https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/4.PNG)
+
+
+![![](https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/5.PNG)
 
 ## Project setup
 
