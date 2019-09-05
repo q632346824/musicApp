@@ -46,6 +46,7 @@ export default {
         if(res.code===0){
           res.singer.data.songlist.forEach(item => {
             getMusicVkey(item.mid).then(response=>{
+
               var vkey=response.data.items[0].vkey||''
               this.songList.push(createSong(item,vkey))
             })

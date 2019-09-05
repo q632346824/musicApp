@@ -92,4 +92,13 @@ export const playMode = {
 
 
 
-
+export const rankListParam={
+  '_': 1564229546132,
+  platform: 'h5',
+  needNewcode: 1,
+  g_tk: 5381,
+  inCharset: 'utf-8',
+  outCharset: 'utf-8',
+  notice: 0,
+  format: 'jsonp'
+}

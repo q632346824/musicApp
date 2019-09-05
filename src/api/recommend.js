@@ -23,8 +23,7 @@ var getDicsParam={
   }
 
 
-  axios.get('/getDiscSongList', {params:getDicsParam}).then(response=>{
-    console.log('getDicsParam')
-    console.log(response)
+  return axios.get('/getDiscSongList', {params:getDicsParam}).then(response=>{
+    if(response.data.code===0) return Promise.resolve(response.data.cdlist)
   })
 }

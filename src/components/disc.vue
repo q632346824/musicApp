@@ -1,14 +1,14 @@
 <template>
   <transition name="slide">
-    <music-list :title="title" :bg-image="bgImage"></music-list>
+    <music-list :title="title" :bigImage="bgImage" :songList="songs"></music-list>
   </transition>
 </template>
 
 <script type="text/ecmascript-6">
   import MusicList from '@/views//music-list'
   import {getSongList} from '@/api/recommend'
-
   import {mapGetters} from 'vuex'
+  import { createSong, getSongParam,getMusicVkey } from '@/assets/js/song'
   // import {createSong} from '@/assets/js/song'
 
   export default {
@@ -33,32 +33,30 @@
     },
     methods: {
       _getSongList() {
-        // if (!this.disc.dissid) {
-        //   this.$router.push('/recommend')
-        //   return
-        // }
-        // getSongList(this.disc.dissid).then((res) => {
-        //   if (res.code === ERR_OK) {
-        //     this.songs = this._normalizeSongs(res.cdlist[0].songlist)
-        //   }
-        // })
-        getSongList(this.disc.dissid)
+        if(!this.disc.dissid){
+          this.$router.push('/recommend')
+        }
+        getSongList(this.disc.dissid).then(response=>{
+          this.songs=this. _normalizeSongs(response[0].songlist)
+        })
       },
-      // _normalizeSongs(list) {
-      //   let ret = []
-      //   list.forEach((musicData) => {
-      //     if (musicData.songid && musicData.albummid) {
-      //       ret.push(createSong(musicData))
-      //     }
-      //   })
-      //   return ret
-      // }
+      _normalizeSongs(list) {
+        let ret = []
+        list.forEach((item) => {
+          getMusicVkey(item.mid).then(response=>{
+              var vkey=response.data.items[0].vkey||''
+              ret.push(createSong(item,vkey))
+            })
+        })
+        return ret
+      }
     },
     components: {
       MusicList
     },
-    mounted(){
-      console.log("list",this.disc)
+    created(){
+      this._getSongList()
+      // console.log(this.disc)
     }
   }
 </script>

@@ -55,16 +55,21 @@ export class Song {
 // }
 
 export function createSong(musicData,songVkey) {
+  var album=musicData.album?musicData.album.name:musicData.albumname
+  var mid=musicData.mid||musicData.songmid
+  var id=musicData.id||musicData.songid
+  var name=musicData.name||musicData.songname
+  var albummid=musicData.album?musicData.album.mid:musicData.albummid
   return new Song({
-    id: musicData.id,
-    mid: musicData.mid,
+    id: id,
+    mid: mid,
     singer: rewrite(musicData.singer),
-    name: musicData.name,
-    album: musicData.album.name,
+    name: name,
+    album: album,
     duration: musicData.interval,
    // https://y.gtimg.cn/music/photo_new/T002R300x300M000${musicData.albummid}.jpg?max_age=2592000
-    image: `https://y.gtimg.cn/music/photo_new/T002R300x300M000${musicData.album.mid}.jpg?max_age=2592000`,
-    url: `http://isure.stream.qqmusic.qq.com/C400${musicData.mid}.m4a?vkey=${songVkey}&guid=7244685629&uin=0&fromtag=66`
+    image: `https://y.gtimg.cn/music/photo_new/T002R300x300M000${albummid}.jpg?max_age=2592000`,
+    url: `http://isure.stream.qqmusic.qq.com/C400${mid}.m4a?vkey=${songVkey}&guid=7244685629&uin=0&fromtag=66`
   })
 }
 
@@ -85,7 +90,7 @@ export function getSongParam(mid){
 }
 
 
-function rewrite(arr1){
+export function rewrite(arr1){
   let str=''
   arr1.forEach((item,index)=>{
     if(index===0){

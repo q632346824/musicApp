@@ -42,12 +42,16 @@
         type: Object,
         default: null
       },
+      beforeScroll:{
+        type:Boolean,
+        default:false
+      }
 
     },
     mounted() {
      setTimeout(() => {
           this._initScroll()
-          this.scroll.refresh()
+          // this.scroll.refresh()
         }, 20)
     },
     methods: {
