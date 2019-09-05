@@ -13,7 +13,7 @@ A music app based on better-scroll.
 
 ![](https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/5.PNG)
 
-<img src="https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/5.PNG" width="200">
+<img src="https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/5.PNG" width="500">
 
 ## Project setup
 
