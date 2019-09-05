@@ -1,6 +1,6 @@
 # music-app
 
-A music app based on better-scroll.
+A music app based on vuejs/better-scroll.
 
 
 <img src="https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/1.PNG" width="500">
