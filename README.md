@@ -2,16 +2,15 @@
 
 A music app based on better-scroll.
 
-![](https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/1.PNG)
 
-![](https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/2.PNG)
+<img src="https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/1.PNG" width="500">
 
-![](https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/3.PNG)
+<img src="https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/2.PNG" width="500">
 
-![](https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/4.PNG)
+<img src="https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/3.PNG" width="500">
 
 
-![](https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/5.PNG)
+<img src="https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/4.PNG" width="500">
 
 <img src="https://raw.githubusercontent.com/q632346824/musicApp/master/src/pics/5.PNG" width="500">
 
